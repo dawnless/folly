@@ -116,7 +116,7 @@ OutIt copy_n(InIt b,
              typename std::iterator_traits<InIt>::difference_type n,
              OutIt d) {
   for (; n != 0; --n, ++b, ++d) {
-    assert((const void*)&*d != &*b);
+    assert((const void*)&*d != &*b);  //解引用得到T&, 再&得到地址, 判断是否是同一个位置.
     *d = *b;
   }
   return d;
